@@ -21,7 +21,7 @@ namespace DingXinTangshan.Controllers
                 productName = ProductName
 
             };
-            var product1 = new Product() { productId = 1234 };
+           // var product1 = new Product() { productId = 1234 };
 
             var suppliers = new List<Supplier>
             {

@@ -3,7 +3,43 @@
     ViewBag.Title = "ByProductName";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@{
+    var classname = Model.Supplier.Count > 0 ? "sold" : null;
+}
+@*
+register supplier relate with product;    
+*@
 
-<h2>@Model.Product.productName</h2>
-@Model.Supplier
+<h2 class="sold">@Model.Product.productName</h2>
+@{
+    if (Model.Supplier.Count == 0)
+    {
+        <p>no one supply this product yet</p>
+    }
+    else
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Product</th>
+                    <th scope="col">Supplier</th>
+                    <th scope="col">Transporter</th>
+                    <th scope="col">Reciever</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var supplier in Model.Supplier)
+                {
+                    <tr>
+                        <th scope="row">@Model.Product.productName</th>
+                        <td>@supplier.supplierName</td>
+                        <td>Otto</td>
+                        <td></td>
 
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+    }
+}
