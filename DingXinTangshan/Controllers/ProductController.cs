@@ -1,50 +1,47 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using DingXinTangshan.Models; //auto created if using Vsharper
+using DingXinTangshan.Models;//auto created if using Vsharper
+using DingXinTangshan.ViewModels;
 
 namespace DingXinTangshan.Controllers
 {
     public class ProductController : Controller
     {
-        // GET: Product/Random
-        public ActionResult Random()
-        {
-            var product = new Product()
-            {
-                Company = "CompanyA"
 
-            };
-            return View(product);
-            //return RedirectToAction("Index", "Home", new { page = 1,sortby = "name" });
-        }
-        public ActionResult GetId(int Id) {
-           
-            return Content("id= " + Id);
-        }
-        public ActionResult Index(int? PageIndex,string sortby)
-        {
-            if (!PageIndex.HasValue)
-                PageIndex = 1;
-            if (String.IsNullOrWhiteSpace(sortby))
-                sortby = "name";
-
-            return Content(String.Format("pageIndex = {0}&sortby={1}", PageIndex, sortby));
-        }
         //Get company name From URL and put into View
-        [Route("product/company/{companyName:regex(\\w)}")]
-        public ActionResult ByCompanyName(string companyName)
+        [Route("product/{productName:regex(\\w)}")]
+
+        public ActionResult ByProductName(string ProductName)
         {
-            if (String.IsNullOrEmpty(companyName))
-                companyName = "null";
+            if (String.IsNullOrEmpty(ProductName))
+                ProductName = "null";
             var product = new Product()
             {
-                Company = companyName
+                productName = ProductName
 
             };
-            return View(product);
+            var product1 = new Product() { productId = 1234 };
+
+            var suppliers = new List<Supplier>
+            {
+                new Supplier { supplierName = "Supplier1" },
+
+                new Supplier { supplierName = "Supplier2" }
+            };
+            var supplierviewmodel = new ProductSupplierView
+            {
+                Product = product,
+                Supplier = suppliers
+
+            };
+
+    
+            // ViewData["Product"] = product; //another way to pass data to view
+            var viewProduct = new ViewResult();
+            //viewProduct.ViewData.Model;
+
+            return View(supplierviewmodel);
            // return Content(String.Format("The Company Name Is {0}",  companyName));
         }
     }
