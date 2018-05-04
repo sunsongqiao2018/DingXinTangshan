@@ -13,6 +13,7 @@ namespace DingXinTangshan
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.MapMvcAttributeRoutes();
+
             /* routes.MapRoute(
                  "ProductByCompanyName",
                  "product/company/{companyName}",

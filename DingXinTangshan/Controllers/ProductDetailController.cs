@@ -9,15 +9,17 @@ using DingXinTangshan.ViewModels;
 
 namespace DingXinTangshan.Controllers
 {
-    public class ProductDetailsController : WorkController
+    public class ProductDetailController : Controller
     {
         // GET: ProductDetails
-        [Route("work/{workName:regex(\\w)}")]
+        [Route("work/ProductDetail/{workName:regex(\\w)}")]
 
-        public ActionResult ProductDetail(string workName)
+        public ActionResult Detail(string workName)
         {
-            if(workName == "JinMen")
-                    {
+            //var product = new Product() { productName = "come on",productPrice = 10.0f };
+            //return View(product);
+            if (workName == "JinMen")
+            {
 
                 var product = new Product()
                 {
@@ -26,10 +28,11 @@ namespace DingXinTangshan.Controllers
 
                 };
 
-
+                //return Content("Hello World");
                 return View(product);
-               }
-            else if (workName == "JinMen")
+            }
+
+            else if (workName == "YunTai")
             {
 
                 var product = new Product()
@@ -39,10 +42,10 @@ namespace DingXinTangshan.Controllers
 
                 };
 
-
+                //return new ViewResult();
                 return View(product);
             }
-            else if (workName == "JinMen")
+            else if (workName == "HaiFen")
             {
 
                 var product = new Product()
@@ -55,7 +58,8 @@ namespace DingXinTangshan.Controllers
 
                 return View(product);
             }
-            else {
+            else
+            {
                 return Content("No work Name specified");
 
             }

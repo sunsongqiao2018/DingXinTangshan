@@ -29,18 +29,21 @@ register supplier relate with product;
                 </tr>
             </thead>
             <tbody>
-                @foreach (var work in Model.Work)
-                {
+               
                     
-                    <tr>
-                        <th scope="row"><a href="/work/@work.workName">@work.workName</a></th>
-                        <td>@Model.Supplier</td>
-                        <td>Otto</td>
-                        <td></td>
+                    @foreach (var work in Model.Work)
+                    {
+                <tr>
+                     
+                <th scope="row"><a href="/work/ProductDetail/@work.workName">@work.workName</a></th>
+                    <td>@Model.Supplier[0]</td>
+                    <td>Otto</td>
+                    <td></td>
 
-                    </tr>
+                </tr>
 
-                }
+                      }
+               
             </tbody>
         </table>
     }

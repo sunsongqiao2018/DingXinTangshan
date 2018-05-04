@@ -145,7 +145,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\WorkController.cs" />
-    <Compile Include="Controllers\ProductDetailsController.cs" />
+    <Compile Include="Controllers\ProductDetailController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -196,7 +196,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Work\ByWorkName.cshtml" />
     <Content Include="Views\Shared\_Navbar.cshtml" />
-    <Content Include="Views\ProductDetails\ProductDetails.cshtml" />
+    <Content Include="Views\ProductDetail\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
