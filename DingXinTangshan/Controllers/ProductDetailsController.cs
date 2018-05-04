@@ -12,7 +12,7 @@ namespace DingXinTangshan.Controllers
     public class ProductDetailsController : WorkController
     {
         // GET: ProductDetails
-        [Route("work/product/")]
+        [Route("work/{workName:regex(\\w)}")]
 
         public ActionResult ProductDetail(string workName)
         {
