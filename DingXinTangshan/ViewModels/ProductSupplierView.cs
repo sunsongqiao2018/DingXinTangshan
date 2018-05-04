@@ -8,7 +8,8 @@ namespace DingXinTangshan.ViewModels
 {
     public class ProductSupplierView
     {
-        public  Product Product { get; set; }
+        public  List<Work> Work { get; set; }
+
         public List<Supplier> Supplier { get; set; }
     }
 }

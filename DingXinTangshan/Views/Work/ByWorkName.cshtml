@@ -1,6 +1,6 @@
 ﻿@model DingXinTangshan.ViewModels.ProductSupplierView
 @{
-    ViewBag.Title = "ByProductName";
+    ViewBag.Title = "ByWorkName";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @{
@@ -10,7 +10,8 @@
 register supplier relate with product;    
 *@
 
-<h2 class="sold">@Model.Product.productName</h2>
+<h2 class="sold">Summary</h2>
+
 @{
     if (Model.Supplier.Count == 0)
     {
@@ -28,11 +29,12 @@ register supplier relate with product;
                 </tr>
             </thead>
             <tbody>
-                @foreach (var supplier in Model.Supplier)
+                @foreach (var work in Model.Work)
                 {
+                    
                     <tr>
-                        <th scope="row">@Model.Product.productName</th>
-                        <td>@supplier.supplierName</td>
+                        <th scope="row"><a href="/work/@work.workName">@work.workName</a></th>
+                        <td>@Model.Supplier</td>
                         <td>Otto</td>
                         <td></td>
 

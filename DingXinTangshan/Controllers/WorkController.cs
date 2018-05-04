@@ -6,32 +6,40 @@ using DingXinTangshan.ViewModels;
 
 namespace DingXinTangshan.Controllers
 {
-    public class ProductController : Controller
+    public class WorkController : Controller
     {
+        public List<Work> works;
 
         //Get company name From URL and put into View
-        [Route("product/{productName:regex(\\w)}")]
+        [Route("work/")]
 
-        public ActionResult ByProductName(string ProductName)
+        public ActionResult ByWorkName()
         {
-            if (String.IsNullOrEmpty(ProductName))
-                ProductName = "null";
-            var product = new Product()
+            //if (String.IsNullOrEmpty(WorkName))
+            //    WorkName = "null";
+
+             works = new List<Work>()
             {
-                productName = ProductName
+               new Work{ workName = "JinMen" },
+
+               new Work{ workName = "YunTai" },
+
+               new Work{ workName = "HaiFen" }
 
             };
-           // var product1 = new Product() { productId = 1234 };
+          // WorkName = works.
 
             var suppliers = new List<Supplier>
             {
                 new Supplier { supplierName = "Supplier1" },
 
                 new Supplier { supplierName = "Supplier2" }
+
             };
             var supplierviewmodel = new ProductSupplierView
             {
-                Product = product,
+                Work = works,
+
                 Supplier = suppliers
 
             };
@@ -41,7 +49,8 @@ namespace DingXinTangshan.Controllers
             var viewProduct = new ViewResult();
             //viewProduct.ViewData.Model;
 
-            return View(supplierviewmodel);
+             return View(supplierviewmodel);
+           // return Content("Oh come on, where is my web");
            // return Content(String.Format("The Company Name Is {0}",  companyName));
         }
     }

@@ -9,6 +9,9 @@ namespace DingXinTangshan.Models
     {
         public int supplierId { get; set; }
         public string supplierName { get; set; }
-       // public string MyProperty { get; set; }
+        public string supplierLocation { get; set; }
+        public int supplierPhoneNumber { get; set; }
+
+     // public string MyProperty { get; set; }
     }
 }
